@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Process Scheduling Simulator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Process Scheduling Simulator</h1>
+
+    <div class="input-section">
+      <input type="number" id="arrivalTime" placeholder="Arrival Time" />
+      <input type="number" id="burstTime" placeholder="Burst Time" />
+       <input type="number" id="ioBurstTime" placeholder="I/O Burst Time" /> 
+      <input type="number" id="priority" placeholder="Priority" />
+      <select id="processType">
+      <option value="CPU">CPU-bound</option>
+       <option value="IO">I/O-bound</option>
+      </select>
+      <button onclick="addProcess()">Add Process</button>
+    </div>
+
+    <div class="algorithm-section">
+      <label for="algorithm">Algorithm:</label>
+      <select id="algorithm">
+        <option value="FCFS">FCFS</option>
+        <option value="SJF">SJF</option>
+        <option value="SRTF">SRTF</option> 
+        <option value="RR">Round Robin</option>
+        <option value="Priority">Priority</option>
+        <option value="MLFQ">Multilevel Feedback Queue</option>
+      </select>
+      <input type="number" id="quantum" placeholder="Quantum (RR only)" />
+      <button onclick="run()">Run Scheduler</button>
+    </div>
+
+    <div class="process-list">
+      <h3>Processes:</h3>
+      <ul id="processList"></ul>
+    </div>
+
+    <div class="visuals">
+      <div id="ganttChart" class="gantt"></div>
+      <canvas id="timelineGraph" width="800" height="200"></canvas>
+    </div>
+
+    <div>
+    <span style="background:#2196F3; padding:5px; color:white;">CPU-Bound</span>
+     <span style="background:#4CAF50; padding:5px; color:white;">I/O-Bound</span>
+    </div>
+
+
+    <div class="output" id="output"></div>
+  </div>
+
+  <script src="algorithms.js"></script>
+  <script src="visualization.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
